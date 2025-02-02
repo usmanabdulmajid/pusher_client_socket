@@ -90,7 +90,7 @@ class PusherClient {
       "the connection state changed from ${states[_connectionState]} to ${states[state]}",
     );
     _connectionState = state;
-    _connected = state is Connected;
+    _connected = state is Connected || state is Reconnected;
 
     _onEvent("connection_state_changed", state);
 
