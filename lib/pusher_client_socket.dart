@@ -56,6 +56,10 @@ class PusherClient {
 
   /// Connects the client to the server.
   void connect() {
+     if (__socket != null) {
+      __socket!.close();
+      __socket = null;
+    }
     __socket = WebSocket(options.uri);
 
     _socket.connection.listen(_onConnectionStateChange);
